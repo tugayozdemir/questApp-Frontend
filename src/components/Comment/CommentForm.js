@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, CardContent, InputAdornment, OutlinedInput, Avatar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import {Link, useHistory} from "react-router-dom";
+import {Link, useNavigate } from "react-router-dom";
 import { PostWithAuth, RefreshToken } from "../../services/HttpService";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,14 +28,14 @@ function CommentForm(props) {
     const classes =useStyles();
     const [text, setText] = useState("");
 
-    let history = useHistory();
+    let history = useNavigate();
 
     const logout = () => {
       localStorage.removeItem("tokenKey")
       localStorage.removeItem("currentUser")
       localStorage.removeItem("refreshKey")
       localStorage.removeItem("userName")
-      history.go(0)
+      navigate(0)
     }
 
 
