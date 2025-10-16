@@ -28,7 +28,7 @@ function CommentForm(props) {
     const classes =useStyles();
     const [text, setText] = useState("");
 
-    let history = useNavigate();
+    let navigate = useNavigate();
 
     const logout = () => {
       localStorage.removeItem("tokenKey")
