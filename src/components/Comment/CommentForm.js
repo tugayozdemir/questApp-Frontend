@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, CardContent, InputAdornment, OutlinedInput, Avatar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import {Link} from "react-router-dom";
-
+import { PostWithAuth, RefreshToken } from "../../services/HttpService";
 
 const useStyles = makeStyles((theme) => ({
   comment : {
@@ -27,6 +27,16 @@ function CommentForm(props) {
     const {userId, userName, postId, setCommentRefresh} = props;
     const classes =useStyles();
     const [text, setText] = useState("");
+
+    let history = useHistory();
+
+    const logout = () => {
+      localStorage.removeItem("tokenKey")
+      localStorage.removeItem("currentUser")
+      localStorage.removeItem("refreshKey")
+      localStorage.removeItem("userName")
+      history.go(0)
+    }
 
 
      const saveComment = () => {
