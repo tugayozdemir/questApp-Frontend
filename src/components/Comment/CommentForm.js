@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, CardContent, InputAdornment, OutlinedInput, Avatar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import { PostWithAuth, RefreshToken } from "../../services/HttpService";
 
 const useStyles = makeStyles((theme) => ({
